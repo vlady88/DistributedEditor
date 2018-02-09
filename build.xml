@@ -20,7 +20,7 @@
 
     <target name="run" depends="compile">
 		<sequential>
-			<java classname="server.CentralServer" fork="true" spawn="true">
+			<java classname="server.CentralServer" fork="false" spawn="false">
 				<classpath>
 					<pathelement location="${bin.dir}" />
 				</classpath>

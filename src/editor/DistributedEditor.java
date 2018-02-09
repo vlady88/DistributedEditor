@@ -2,7 +2,6 @@ package editor;
 
 import comm.CentralServerCommunicator;
 import comm.CommunicatorI;
-import sim.Simulator;
 import ui.Gui;
 import ui.GuiI;
 
@@ -16,15 +15,10 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 	
 	GuiI gui;
 	CommunicatorI communicator;
-	Simulator sim;
 	
 	public DistributedEditor(GuiI gui, CommunicatorI communicator) {
 		this.gui = gui;
 		this.communicator = communicator;
-	}
-	
-	public void setSimulator(Simulator sim) {
-		this.sim = sim;
 	}
 	
 	public GuiI getGui() {
@@ -34,11 +28,7 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 	@Override
 	public void run() {
 		communicator.init();
-		if(sim != null) {
-			sim.init();
-		} else {
-			gui.init();
-		}
+		gui.init();
 	}
 	
 	/**
@@ -82,16 +72,11 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 		int port = -1;
 		String serverAddr = null;
 		String option = "";
-		String filename = null;
-		boolean simulate = false;
 	
 		// parse parameters, which have the format "-[param_name] [param_value]"
 		for(String arg : args) {
 			if(arg.startsWith("-")) {
 				option = arg;
-				if(option.equals("-sim")) {
-					simulate = true;
-				}
 			} else {
 				if(option.equals("-p")) {
 					// parse the port number
@@ -99,9 +84,6 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 				} else if(option.equals("-s")) {
 					// parse the server address
 					serverAddr = arg;
-				} else if(option.equals("-f")) {
-					// parse commands file (for simulator mode)
-					filename = arg;
 				}
 			}
 		}
@@ -119,10 +101,6 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 		// initializations
 		Gui gui = new Gui("DistrEditor");
 		DistributedEditor de = new DistributedEditor(gui, communicator);
-		if(simulate) {
-			de.setSimulator(new Simulator(de, filename));
-		}
-		
 		gui.setEditor(de);
 		communicator.setEditor(de);
 		de.start();
