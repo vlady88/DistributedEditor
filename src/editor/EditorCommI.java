@@ -1,7 +1,8 @@
 package editor;
 
 /**
- * this is what the communication module sees
+ * interface exposed by the editor to the communicator
+ * 
  * @author Vladimir
  *
  */

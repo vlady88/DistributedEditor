@@ -27,6 +27,9 @@ public class CentralServer extends NetworkNode {
 		commandQ = new CommandQueue();
 	}
 	
+	/**
+	 * process message from client
+	 */
 	public void processMessage(String message, SocketChannel socketChannel) {
 		String[] tokens = message.split("#@");
 		

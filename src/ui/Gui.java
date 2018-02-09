@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import editor.EditorGuiI;
 
 /**
- * a simple window with a text area
+ * class that implements a simple window with a text area
  * 
  * @author Vladimir
  *

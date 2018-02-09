@@ -2,6 +2,12 @@ package ui;
 
 import editor.EditorGuiI;
 
+/**
+ * interface exposed by the GUI to the other components
+ * 
+ * @author Vladimir
+ *
+ */
 public interface GuiI {
 
 	public void init();

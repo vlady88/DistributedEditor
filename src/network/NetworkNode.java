@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
 /**
- * abstract class for sending and receiving strings over the network
+ * abstract class for sending and receiving text messages over the network
  * 
  * @author Vladimir
  *

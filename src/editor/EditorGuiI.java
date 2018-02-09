@@ -1,7 +1,7 @@
 package editor;
 
 /**
- * interface accessed by the GUI
+ * interface exposed by the editor to the GUI
  *
  * @author Vladimir
  *

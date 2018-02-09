@@ -51,7 +51,6 @@ public class BroadcastThread extends NetworkNode {
 	
 	/**
 	 * unregister client
-	 * @param client
 	 */
 	public void removeClient(String client) {
 		SocketChannel socketChannel = clients.get(client);
@@ -68,7 +67,6 @@ public class BroadcastThread extends NetworkNode {
 	
 	/**
 	 * broadcast a command to all clients
-	 * @param command
 	 */
 	private void broadcastCommand(String command) {
 		for(SocketChannel clientSocket : clients.values()) {

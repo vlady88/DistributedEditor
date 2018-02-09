@@ -25,7 +25,7 @@ import struct.CommandQueue;
 /**
  * Class with unit tests and integration tests
  * 
- * @author vladzy
+ * @author Vladimir
  *
  */
 public class EditorTest {

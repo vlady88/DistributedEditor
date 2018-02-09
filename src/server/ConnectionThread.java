@@ -23,6 +23,9 @@ public class ConnectionThread extends NetworkNode {
 		this.socketChannel = socketChannel;
 	}
 	
+	/**
+	 * process message from client
+	 */
 	public void processMessage(String message) {
 		String[] tokens = message.split("#@");
 		

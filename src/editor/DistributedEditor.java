@@ -88,7 +88,7 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 			}
 		}
 		
-		// according to parameters, choose a communication model
+		// setup the communicator
 		CommunicatorI communicator = null;
 		if(serverAddr != null) {
 			String[] tokens = serverAddr.split(":");
@@ -96,6 +96,9 @@ public class DistributedEditor extends Thread implements EditorGuiI, EditorCommI
 			int serverPort = Integer.parseInt(tokens[1]);
 			
 			communicator = new CentralServerCommunicator(port, serverIp, serverPort);
+		} else {
+			System.err.println("invalid parameters");
+			System.exit(0);
 		}
 		
 		// initializations

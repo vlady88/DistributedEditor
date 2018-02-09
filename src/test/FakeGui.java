@@ -3,6 +3,14 @@ package test;
 import editor.EditorGuiI;
 import ui.GuiI;
 
+/**
+ * 
+ * Mock GUI used for unit testing
+ * uses a string buffer instead of the visual editor
+ * 
+ * @author Vladimir
+ *
+ */
 public class FakeGui implements GuiI{
 
 	EditorGuiI editor;
